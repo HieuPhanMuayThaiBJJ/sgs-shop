@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saigon Grappling Society – Áo thun SGS</title>
+<meta name="description" content="Áo thun Saigon Grappling Society. Cotton 250gsm, form boxy. Giá 50K.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Oswald:wght@500;700&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f5c; --cream:#f3efe4; --paper:#faf8f1; --ink:#101733; --line:#d9d3c0;
+  --head:"Oswald","Be Vietnam Pro","Arial Narrow",Arial,sans-serif;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden;padding-bottom:70px}
+img{max-width:100%;display:block}
+h1,h2,h3,.head{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;mix-blend-mode:normal}
+nav .brand{font-family:var(--head);font-size:22px;color:var(--navy);letter-spacing:.08em}
+nav a{background:var(--navy);color:#fff;text-decoration:none;padding:10px 18px;font-size:12px;letter-spacing:.18em;font-weight:700}
+
+/* HERO – hình ảnh là chính */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 0 30px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 40%,#fbf9f2 0%,var(--cream) 60%,#e9e3d0 100%)}
+.bigtext{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:var(--head);font-weight:700;font-size:clamp(90px,22vw,330px);color:rgba(11,31,92,.07);white-space:nowrap;pointer-events:none;letter-spacing:.02em;user-select:none}
+.stage{perspective:1600px;position:relative;z-index:2;width:100%;display:flex;justify-content:center}
+.hero-img{height:min(76vh,780px);aspect-ratio:4/5;position:relative;transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;box-shadow:0 40px 70px -25px rgba(11,31,92,.55);background:#cfd3dc;transition:opacity .35s}
+.hero-img .shadow{position:absolute;inset:auto 8% -26px 8%;height:30px;background:radial-gradient(ellipse,rgba(11,31,92,.35),transparent 70%);filter:blur(6px);transform:translateZ(-40px)}
+.thumbs{display:flex;gap:10px;margin-top:26px;position:relative;z-index:3;padding:0 14px;overflow-x:auto;max-width:100%}
+.thumbs button{width:64px;height:80px;flex:none;border:2px solid transparent;padding:0;cursor:pointer;background:#cfd3dc;opacity:.65;transition:.2s}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
+.thumbs button.on{border-color:var(--navy);opacity:1;transform:translateY(-4px)}
+.hero-meta{position:relative;z-index:3;text-align:center;margin-top:18px}
+.hero-meta .t{font-family:var(--head);font-size:clamp(26px,4vw,40px);color:var(--navy);letter-spacing:.06em}
+.hero-meta .p{margin-top:6px;font-size:14px;color:#4b5375;letter-spacing:.14em}
+.hero-meta .p b{font-family:var(--head);font-size:26px;color:var(--navy);letter-spacing:.04em;margin-right:8px}
+.hint{font-size:11px;letter-spacing:.25em;color:#6b7191;margin-top:10px}
+
+.btn{display:inline-block;background:var(--navy);color:#fff;border:0;padding:16px 38px;font-family:var(--body);font-size:14px;letter-spacing:.2em;font-weight:700;text-decoration:none;cursor:pointer;transition:.2s;box-shadow:6px 6px 0 rgba(11,31,92,.22)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 rgba(11,31,92,.22)}
+
+/* ẢNH LỚN CUỘN 3D */
+.shots{padding:60px 0 20px}
+.shot{perspective:1400px;margin:0 auto 60px;max-width:1000px;padding:0 20px}
+.shot .in{transform-origin:50% 100%;transform:rotateX(14deg) translateY(40px) scale(.94);opacity:0;transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity 1s;box-shadow:0 40px 70px -30px rgba(11,31,92,.5);background:#cfd3dc}
+.shot.vis .in{transform:none;opacity:1}
+.shot img{width:100%}
+.shot figcaption{font-family:var(--head);color:var(--navy);font-size:15px;letter-spacing:.25em;margin-top:14px;text-align:center;text-transform:uppercase}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:0 auto 60px;padding:0 20px}
+.duo .shot{margin:0;padding:0}
+
+/* FLIP 3D mặt trước / sau */
+.flip-sec{background:var(--navy);padding:70px 0;color:#fff;text-align:center;overflow:hidden}
+.flip-sec h2{font-size:clamp(34px,6vw,64px);margin-bottom:8px}
+.flip-sec p{color:#b9c2e6;font-size:14px;margin-bottom:34px}
+.flip-stage{perspective:1600px;display:flex;justify-content:center}
+.flip{width:min(440px,84vw);aspect-ratio:4/5;position:relative;transform-style:preserve-3d;cursor:grab;touch-action:pan-y}
+.flip .f{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#cfd3dc;box-shadow:0 40px 60px -20px rgba(0,0,0,.6)}
+.flip .f img{width:100%;height:100%;object-fit:cover}
+.flip .f.b{transform:rotateY(180deg)}
+
+/* SPECS */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:1000px;margin:60px auto;border:1.5px solid var(--navy)}
+.specs div{padding:26px 20px;text-align:center;border-right:1.5px solid var(--navy)}
+.specs div:last-child{border:0}
+.specs small{display:block;font-size:11px;letter-spacing:.25em;color:#6b7191;margin-bottom:6px}
+.specs b{font-family:var(--head);font-size:34px;color:var(--navy)}
+
+/* SIZE */
+.sec-title{font-size:clamp(34px,5vw,56px);color:var(--navy);margin-bottom:10px;text-align:center}
+.sec-sub{color:#5b6283;text-align:center;margin:0 auto 28px;max-width:560px;font-size:15px}
+.size-img{max-width:1200px;margin:0 auto 70px;padding:0 20px}
+.size-img img{width:100%;border:1px solid var(--line);box-shadow:0 30px 50px -30px rgba(11,31,92,.4)}
+
+/* ORDER */
+.order{background:var(--paper);border-top:1px solid var(--line);padding:70px 0}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;max-width:1000px;margin:0 auto}
+.panel{background:#fff;border:1.5px solid var(--navy);padding:28px;box-shadow:8px 8px 0 rgba(11,31,92,.14)}
+.panel h3{font-size:26px;color:var(--navy);margin-bottom:14px}
+label.l{display:block;font-size:11px;letter-spacing:.2em;font-weight:700;margin:16px 0 6px;color:var(--navy)}
+input[type=text],input[type=tel]{width:100%;padding:13px 14px;border:1.5px solid #b7bdd4;background:#fff;font-size:16px;font-family:var(--body);border-radius:0;outline:none}
+input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(11,31,92,.12)}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sizes input{display:none}
+.sizes label{margin:0;text-align:center;border:1.5px solid #b7bdd4;padding:13px 0;font-family:var(--head);font-size:20px;cursor:pointer;transition:.15s}
+.sizes input:checked+label{background:var(--navy);color:#fff;border-color:var(--navy)}
+.size-hint{font-size:13px;color:#5b6283;margin-top:8px;min-height:20px}
+.paid{display:flex;gap:12px;align-items:center;margin-top:20px;padding:14px;background:var(--cream);border:1.5px dashed var(--navy);cursor:pointer}
+.paid input{width:22px;height:22px;accent-color:var(--navy);flex:none}
+.paid span{font-weight:700;font-size:15px}
+.submit{width:100%;margin-top:20px;font-size:15px;padding:18px}
+.submit[disabled]{opacity:.6;cursor:wait}
+.msg{margin-top:14px;padding:13px;font-size:14px;display:none}
+.msg.ok{display:block;background:#e4f3e6;border:1px solid #7bb987;color:#1d5a2a}
+.msg.err{display:block;background:#fbe7e5;border:1px solid #d98c85;color:#8a2a22}
+.bank dl{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;font-size:15px}
+.bank dt{color:#6b7191;font-size:11px;letter-spacing:.18em;font-weight:700}
+.bank dd{font-weight:700}
+.copy{border:1px solid var(--navy);background:#fff;color:var(--navy);font-family:var(--body);font-size:11px;padding:5px 10px;letter-spacing:.1em;cursor:pointer;font-weight:700}
+.copy:hover{background:var(--navy);color:#fff}
+.qr{margin:20px auto 6px;max-width:250px;border:1px solid var(--line);background:#fff;padding:8px}
+.qr-note{text-align:center;font-size:12px;color:#6b7191}
+.ct{margin-top:16px;padding:14px;background:var(--navy);color:#fff}
+.ct small{display:block;font-size:10px;letter-spacing:.2em;color:#b9c2e6}
+.ct strong{font-size:19px;word-break:break-all}
+
+footer{background:var(--navy);color:#b9c2e6;text-align:center;padding:34px 20px;font-size:12px;letter-spacing:.25em}
+footer b{display:block;color:#fff;font-family:var(--head);font-size:24px;letter-spacing:.1em;margin-bottom:6px}
+
+/* Thanh mua cố định */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;transform:translateY(100%);transition:transform .35s}
+.buybar.show{transform:none}
+.buybar .n{font-family:var(--head);font-size:18px;letter-spacing:.08em}
+.buybar .n b{font-size:22px;margin-left:8px}
+.buybar a{background:var(--cream);color:var(--navy);text-decoration:none;padding:11px 22px;font-weight:700;font-size:12px;letter-spacing:.18em}
+
+@media(max-width:820px){
+  .order-grid,.duo{grid-template-columns:1fr}
+  .specs b{font-size:24px}
+  .hero-img{height:62vh}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.shot .in{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="brand">SGS</div><a href="#dang-ky">ĐĂNG KÝ ÁO</a></nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="bigtext">SAIGON</div>
+  <div class="stage">
+    <div class="hero-img" id="heroImg">
+      <img id="mainImg" src="images/model-1.png" alt="Áo thun Saigon Grappling Society">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="thumbs" id="thumbs"></div>
+  <div class="hero-meta">
+    <div class="t">Saigon Grappling Society</div>
+    <div class="p"><b>50K</b>ÁO THUN · COTTON 250GSM · BOXY</div>
+    <p class="hint">DI CHUỘT / NGHIÊNG ĐỂ XEM 3D · BẤM ẢNH NHỎ ĐỂ ĐỔI GÓC</p>
+    <div style="margin-top:18px"><a class="btn" href="#dang-ky">ĐĂNG KÝ NGAY</a></div>
+  </div>
+</header>
+
+<!-- ẢNH LỚN -->
+<section class="shots">
+  <figure class="shot"><div class="in"><img src="images/mockup.png" alt="Mockup mặt trước và sau" loading="lazy"></div><figcaption>Mặt trước · Mặt sau</figcaption></figure>
+  <div class="duo">
+    <figure class="shot"><div class="in"><img src="images/model-2.png" alt="Góc nghiêng" loading="lazy"></div><figcaption>Form boxy</figcaption></figure>
+    <figure class="shot"><div class="in"><img src="images/model-3.png" alt="Chi tiết tay áo" loading="lazy"></div><figcaption>Logo SGS trên tay</figcaption></figure>
+  </div>
+</section>
+
+<!-- FLIP -->
+<section class="flip-sec">
+  <h2>Xoay 360°</h2>
+  <p>Kéo ngang để xoay, mặt trước và mặt sau</p>
+  <div class="flip-stage">
+    <div class="flip" id="flip">
+      <div class="f"><img src="images/model-1.png" alt="Mặt trước"></div>
+      <div class="f b"><img src="images/model-back.png" alt="Mặt sau"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<div class="wrap">
+  <div class="specs">
+    <div><small>CHẤT VẢI</small><b>250 GSM</b></div>
+    <div><small>CHẤT LIỆU</small><b>100% COTTON</b></div>
+    <div><small>FORM ÁO</small><b>BOXY</b></div>
+  </div>
+</div>
+
+<!-- SIZE -->
+<h2 class="sec-title">Bảng size</h2>
+<p class="sec-sub">Đối chiếu chiều cao và cân nặng để chọn size. Thích mặc rộng thì lên 1 size.</p>
+<div class="size-img"><img src="images/size-guide.png" alt="Bảng size áo SGS" loading="lazy"></div>
+
+<!-- ORDER -->
+<section class="order" id="dang-ky">
+  <h2 class="sec-title">Đăng ký áo</h2>
+  <p class="sec-sub">Chuyển khoản trước, sau đó điền form và tick “Đã chuyển khoản”.</p>
+  <div class="order-grid">
+
+    <div class="panel bank">
+      <h3>1. Chuyển khoản</h3>
+      <dl>
+        <dt>NGÂN HÀNG</dt><dd>VPBank</dd><span></span>
+        <dt>SỐ TK</dt><dd>0987830414</dd><button class="copy" data-copy="0987830414" type="button">COPY</button>
+        <dt>CHỦ TK</dt><dd>PHAN TRUNG HIẾU</dd><button class="copy" data-copy="PHAN TRUNG HIẾU" type="button">COPY</button>
+        <dt>SỐ TIỀN</dt><dd>50.000đ</dd><button class="copy" data-copy="50000" type="button">COPY</button>
+      </dl>
+      <div class="qr"><img src="images/qr.png" alt="QR chuyển khoản VPBank"></div>
+      <p class="qr-note">Quét bằng app ngân hàng bất kỳ (VietQR · napas 247)</p>
+      <div class="ct">
+        <small>NỘI DUNG CHUYỂN KHOẢN (Tên_SDT)</small>
+        <strong id="ctText">Hiếu_0987654321</strong>
+        <div><button class="copy" id="ctCopy" type="button" style="margin-top:10px;background:transparent;color:#fff;border-color:#fff">COPY NỘI DUNG</button></div>
+      </div>
+    </div>
+
+    <form class="panel" id="form" novalidate>
+      <h3>2. Điền thông tin</h3>
+      <label class="l" for="name">TÊN</label>
+      <input type="text" id="name" placeholder="Ví dụ: Hiếu" autocomplete="given-name">
+      <label class="l" for="phone">SỐ ĐIỆN THOẠI</label>
+      <input type="tel" id="phone" placeholder="0987654321" inputmode="numeric" autocomplete="tel">
+      <label class="l">SIZE</label>
+      <div class="sizes">
+        <input type="radio" name="size" id="sS" value="S"><label for="sS">S</label>
+        <input type="radio" name="size" id="sM" value="M"><label for="sM">M</label>
+        <input type="radio" name="size" id="sL" value="L"><label for="sL">L</label>
+        <input type="radio" name="size" id="sXL" value="XL"><label for="sXL">XL</label>
+      </div>
+      <div class="size-hint" id="sizeHint">Chọn size theo bảng size phía trên.</div>
+      <label class="paid" for="paid"><input type="checkbox" id="paid"><span>Đã chuyển khoản</span></label>
+      <button class="btn submit" id="submitBtn" type="submit">SUBMIT</button>
+      <div class="msg" id="msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer><b>SAIGON GRAPPLING SOCIETY</b>BJJ · GRAPPLING · COMMUNITY</footer>
+
+<div class="buybar" id="buybar"><div class="n">SGS T-SHIRT<b>50K</b></div><a href="#dang-ky">ĐĂNG KÝ</a></div>
+
+<script>
+/* ===== CẤU HÌNH ===== */
+// Dán URL Web App của Google Apps Script vào đây (xem apps-script.gs)
+const SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzPDs1LX5byTWjBvsGzQ1DO7uhsmgh96jAPJii38BQyRoTgJFxCQNJOGH_UV7fRdOlKEQ/exec";
+
+const GALLERY = [
+  ["images/model-1.png","Mặt trước"],
+  ["images/model-2.png","Góc nghiêng"],
+  ["images/model-3.png","Chi tiết"],
+  ["images/model-back.png","Mặt sau"],
+  ["images/mockup.png","Mockup"]
+];
+const SIZE_INFO = {
+  S:"S · Ngực 56 · Dài 62 · 160–168cm · 50–60kg (ôm vừa)",
+  M:"M · Ngực 58 · Dài 64 · 165–173cm · 60–68kg (tiêu chuẩn)",
+  L:"L · Ngực 60 · Dài 66 · 170–178cm · 68–78kg (rộng thoải mái)",
+  XL:"XL · Ngực 62 · Dài 68 · 175–185cm · 78–88kg (rất rộng)"
+};
+
+/* ===== HERO: đổi ảnh + nghiêng 3D theo chuột/cảm biến ===== */
+(function(){
+  const main = document.getElementById("mainImg"), box = document.getElementById("heroImg"), th = document.getElementById("thumbs");
+  GALLERY.forEach(([src,alt],i)=>{
+    const b = document.createElement("button");
+    b.type="button"; b.setAttribute("aria-label",alt);
+    b.innerHTML = `<img src="${src}" alt="${alt}">`;
+    if(i===0) b.className="on";
+    b.onclick = () => {
+      main.style.opacity = 0;
+      setTimeout(()=>{ main.src = src; main.style.opacity = 1; },180);
+      th.querySelectorAll("button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+    };
+    th.appendChild(b);
+  });
+  const hero = document.getElementById("hero");
+  let tx=0,ty=0,cx=0,cy=0;
+  hero.addEventListener("pointermove", e=>{
+    const r = hero.getBoundingClientRect();
+    tx = ((e.clientX-r.left)/r.width - .5) * 26;
+    ty = -((e.clientY-r.top)/r.height - .5) * 16;
+  });
+  hero.addEventListener("pointerleave", ()=>{tx=0;ty=0});
+  (function tick(){
+    cx += (tx-cx)*.08; cy += (ty-cy)*.08;
+    box.style.transform = `rotateY(${cx}deg) rotateX(${cy}deg)`;
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ===== SCROLL REVEAL 3D ===== */
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("vis"); io.unobserve(e.target);} }),{threshold:.15});
+document.querySelectorAll(".shot").forEach(s=>io.observe(s));
+
+/* ===== BUY BAR ===== */
+const bar = document.getElementById("buybar");
+const orderEl = document.getElementById("dang-ky");
+addEventListener("scroll",()=>{
+  const past = scrollY > innerHeight*.8;
+  const inOrder = orderEl.getBoundingClientRect().top < innerHeight*.6;
+  bar.classList.toggle("show", past && !inOrder);
+},{passive:true});
+
+/* ===== FLIP 360 ===== */
+(function(){
+  const f = document.getElementById("flip");
+  let rot = -20, drag=false, sx=0, base=0, moved=0;
+  const ap = ()=> f.style.transform = `rotateY(${rot}deg)`;
+  ap();
+  f.addEventListener("pointerdown",e=>{drag=true;sx=e.clientX;base=rot;moved=0;f.setPointerCapture(e.pointerId);f.style.transition="none"});
+  f.addEventListener("pointermove",e=>{ if(!drag) return; const dx=e.clientX-sx; moved=Math.max(moved,Math.abs(dx)); rot=base+dx*.6; ap(); });
+  const end=()=>{ if(!drag) return; drag=false;
+    f.style.transition="transform .7s cubic-bezier(.2,.7,.2,1)";
+    rot = moved<6 ? (Math.round(rot/180)%2===0 ? rot+180 : rot-180) : Math.round(rot/180)*180;
+    ap(); };
+  f.addEventListener("pointerup",end); f.addEventListener("pointercancel",end);
+})();
+
+/* ===== COPY ===== */
+async function copyText(t,btn){
+  try{ await navigator.clipboard.writeText(t); }
+  catch(e){ const a=document.createElement("textarea"); a.value=t; document.body.appendChild(a); a.select(); document.execCommand("copy"); a.remove(); }
+  const old=btn.textContent; btn.textContent="ĐÃ COPY"; setTimeout(()=>btn.textContent=old,1200);
+}
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copyText(b.dataset.copy,b));
+
+/* ===== FORM ===== */
+const form=document.getElementById("form"), nameEl=document.getElementById("name"), phoneEl=document.getElementById("phone"),
+      msg=document.getElementById("msg"), btn=document.getElementById("submitBtn"), ctText=document.getElementById("ctText");
+const tc=()=>`${nameEl.value.trim().replace(/\s+/g," ")||"Tên"}_${phoneEl.value.replace(/\D/g,"")||"SDT"}`;
+const refresh=()=>ctText.textContent=(nameEl.value||phoneEl.value)?tc():"Hiếu_0987654321";
+nameEl.addEventListener("input",refresh);
+phoneEl.addEventListener("input",()=>{phoneEl.value=phoneEl.value.replace(/[^\d+]/g,"");refresh()});
+document.getElementById("ctCopy").onclick=e=>copyText(tc(),e.target);
+document.querySelectorAll('input[name="size"]').forEach(r=>r.addEventListener("change",()=>document.getElementById("sizeHint").textContent=SIZE_INFO[r.value]));
+const show=(t,x)=>{msg.className="msg "+t;msg.textContent=x};
+
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const name=nameEl.value.trim(), phone=phoneEl.value.replace(/\s/g,"");
+  const size=(form.querySelector('input[name="size"]:checked')||{}).value;
+  const paid=document.getElementById("paid").checked;
+  if(!name) return show("err","Bạn chưa nhập tên.");
+  if(!/^(0|\+84)\d{9}$/.test(phone)) return show("err","Số điện thoại chưa đúng (VD: 0987654321).");
+  if(!size) return show("err","Bạn chưa chọn size.");
+  if(!paid) return show("err","Vui lòng chuyển khoản và tick “Đã chuyển khoản” trước khi submit.");
+  const payload={name,phone,size,paid:"Đã chuyển khoản",amount:50000,transferContent:`${name}_${phone}`,
+    submittedAt:new Date().toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh"})};
+  if(!SHEET_WEBAPP_URL){ console.log(payload); return show("err","Trang chưa nối Google Sheet (thiếu SHEET_WEBAPP_URL), dữ liệu chưa được lưu."); }
+  btn.disabled=true; btn.textContent="ĐANG GỬI...";
+  try{
+    await fetch(SHEET_WEBAPP_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+    show("ok",`Đã nhận đăng ký của ${name} (size ${size}). Cảm ơn bạn, mình sẽ đối chiếu chuyển khoản và liên hệ qua SĐT.`);
+    form.reset(); document.getElementById("sizeHint").textContent="Chọn size theo bảng size phía trên."; refresh();
+  }catch(err){ show("err","Gửi không thành công, vui lòng thử lại."); }
+  finally{ btn.disabled=false; btn.textContent="SUBMIT"; }
+});
+</script>
+</body>
+</html>
